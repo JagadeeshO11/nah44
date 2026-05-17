@@ -9,31 +9,23 @@ import Contact from './pages/Contact.jsx'
 import Home from './pages/Home.jsx'
 import Services from './pages/Services.jsx'
 
-function AppShell() {
-  return (
-    <div className="site-shell">
-      <Header />
-      <main className="page-main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
-      <FloatingContact />
-    </div>
-  )
-}
-
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
-      <AppShell />
+      <div className="site-shell">
+        <Header />
+        <main className="page-main" id="main" tabIndex="-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+        <FloatingContact />
+      </div>
     </BrowserRouter>
   )
 }
-
-export default App

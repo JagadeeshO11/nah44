@@ -116,13 +116,14 @@ function Careers() {
           </p>
         </div>
 
-        <form className="form-grid" onSubmit={handleSubmit}>
+        <form className="form-grid" onSubmit={handleSubmit} noValidate>
           {/* 1. Full Name */}
-          <label>
+          <label htmlFor="career-fullname">
             <span>1. Full Name *</span>
             <div style={{ position: 'relative' }}>
               <User size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
               <input
+                id="career-fullname"
                 className="input"
                 style={{ paddingLeft: '40px' }}
                 type="text"
@@ -136,11 +137,12 @@ function Careers() {
           </label>
 
           {/* 2. Date of Birth */}
-          <label>
+          <label htmlFor="career-dob">
             <span>2. Date of Birth *</span>
             <div style={{ position: 'relative' }}>
               <Calendar size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
               <input
+                id="career-dob"
                 className="input"
                 style={{ paddingLeft: '40px' }}
                 type="date"
@@ -153,9 +155,10 @@ function Careers() {
           </label>
 
           {/* 3. Father Name */}
-          <label>
+          <label htmlFor="career-fathername">
             <span>3. Father Name *</span>
             <input
+              id="career-fathername"
               className="input"
               type="text"
               name="fatherName"
@@ -167,11 +170,12 @@ function Careers() {
           </label>
 
           {/* 4. Contact Number */}
-          <label>
+          <label htmlFor="career-contact">
             <span>4. Contact Number *</span>
             <div style={{ position: 'relative' }}>
               <Phone size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
               <input
+                id="career-contact"
                 className="input"
                 style={{ paddingLeft: '40px' }}
                 type="tel"
@@ -185,9 +189,10 @@ function Careers() {
           </label>
 
           {/* 5. Mail ID */}
-          <label className="span-2">
+          <label htmlFor="career-mail" className="span-2">
             <span>5. Mail ID *</span>
             <input
+              id="career-mail"
               className="input"
               type="email"
               name="mailId"
@@ -199,9 +204,10 @@ function Careers() {
           </label>
 
           {/* 6. Previous Company Experience */}
-          <label>
+          <label htmlFor="career-experience">
             <span>6. Previous Company Experience (Years)</span>
             <input
+              id="career-experience"
               className="input"
               type="text"
               name="previousExperience"
@@ -212,18 +218,18 @@ function Careers() {
           </label>
 
           {/* 7. Previous Company Relieving Letter Uploader */}
-          <label>
+          <label htmlFor="career-relieving">
             <span>7. Previous Company Relieving Letter</span>
             <div className="file-upload-box">
               <input
                 type="file"
-                id="relievingLetterFile"
+                id="career-relieving"
                 style={{ display: 'none' }}
                 onChange={handleFileChange}
                 accept=".pdf,.doc,.docx,.png,.jpg"
               />
               <div
-                onClick={() => document.getElementById('relievingLetterFile').click()}
+                onClick={() => document.getElementById('career-relieving').click()}
                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
               >
                 <FileUp className="file-upload-box__icon" size={20} />
@@ -237,11 +243,12 @@ function Careers() {
           </label>
 
           {/* 8. Previous Company Salary Per Annum */}
-          <label>
+          <label htmlFor="career-salary">
             <span>8. Previous Company Salary Per Annum (CTC)</span>
             <div style={{ position: 'relative' }}>
               <DollarSign size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
               <input
+                id="career-salary"
                 className="input"
                 style={{ paddingLeft: '40px' }}
                 type="text"
@@ -254,9 +261,10 @@ function Careers() {
           </label>
 
           {/* 9. Preferred Work Location */}
-          <label>
+          <label htmlFor="career-location">
             <span>9. Preferred Work Location *</span>
             <select
+              id="career-location"
               className="select"
               name="preferredLocation"
               value={formData.preferredLocation}
@@ -272,9 +280,10 @@ function Careers() {
           </label>
 
           {/* 10. Residency Location */}
-          <label>
+          <label htmlFor="career-residency">
             <span>10. Residency Location *</span>
             <input
+              id="career-residency"
               className="input"
               type="text"
               name="residencyLocation"
@@ -286,9 +295,10 @@ function Careers() {
           </label>
 
           {/* 11. Expected Salary */}
-          <label>
+          <label htmlFor="career-expected">
             <span>11. Expected Salary *</span>
             <input
+              id="career-expected"
               className="input"
               type="text"
               name="expectedSalary"

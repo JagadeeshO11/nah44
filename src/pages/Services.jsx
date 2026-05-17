@@ -188,36 +188,77 @@ function Services() {
               <strong> {selectedCategory.title}</strong>.
             </p>
 
-            <form className="form-grid" onSubmit={handleWhatsappSubmit}>
-              <label className="span-2">
-                <span>Select Service Type *</span>
-                <select
-                  className="select"
-                  name="serviceType"
-                  value={requestForm.serviceType}
-                  onChange={handleInputChange}
-                  required
-                >
+            <form className="form-grid" onSubmit={handleWhatsappSubmit} noValidate>
+               <label htmlFor="svc-type" className="span-2">
+                 <span>Select Service Type *</span>
+                 <select
+                   id="svc-type"
+                   className="select"
+                   name="serviceType"
+                   value={requestForm.serviceType}
+                   onChange={handleInputChange}
+                   required
+                 >
                   {selectedCategory.items.map((item) => (
                     <option key={item} value={item}>
                       {item}
                     </option>
                   ))}
-                </select>
-              </label>
+               </select>
+               </label>
 
-              <label>
-                <span>Full Name *</span>
+               <label htmlFor="svc-name">
+                 <span>Full Name *</span>
                 <input
-                  className="input"
-                  type="text"
-                  name="name"
-                  placeholder="Ex: Jagadeesh"
-                  value={requestForm.name}
-                  onChange={handleInputChange}
-                  required
+                  id="svc-name"
+                 className="input"
+                 type="text"
+                 name="name"
+                 placeholder="Ex: Jagadeesh"
+                 value={requestForm.name}
+                 onChange={handleInputChange}
+                 required
                 />
-              </label>
+               </label>
+
+               <label htmlFor="svc-phone">
+                 <span>Phone Number *</span>
+                 <input
+                   id="svc-phone"
+                   className="input"
+                   type="tel"
+                   name="phone"
+                   placeholder="Ex: 9032677851"
+                   value={requestForm.phone}
+                   onChange={handleInputChange}
+                   required
+                 />
+               </label>
+
+               <label htmlFor="svc-location">
+                 <span>Location</span>
+                 <input
+                   id="svc-location"
+                   className="input"
+                   type="text"
+                   name="location"
+                   placeholder="Ex: Hyderabad"
+                   value={requestForm.location}
+                   onChange={handleInputChange}
+                 />
+               </label>
+
+               <label htmlFor="svc-notes" className="span-2">
+                 <span>Requirement Notes</span>
+                 <textarea
+                   id="svc-notes"
+                   className="textarea"
+                   name="notes"
+                   placeholder="Tell us what support you need..."
+                   value={requestForm.notes}
+                   onChange={handleInputChange}
+                 />
+               </label>
 
               <label>
                 <span>Phone Number *</span>

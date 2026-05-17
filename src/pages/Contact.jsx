@@ -64,10 +64,11 @@ function Contact() {
             Service Request Form
           </h2>
 
-          <form className="form-grid" onSubmit={handleSubmit}>
-            <label className="span-2">
+        <form className="form-grid" onSubmit={handleSubmit} noValidate>
+            <label htmlFor="contact-name">
               <span>Full Name *</span>
               <input
+                id="contact-name"
                 className="input"
                 type="text"
                 name="name"
@@ -78,22 +79,24 @@ function Contact() {
               />
             </label>
 
-            <label className="span-2">
+            <label htmlFor="contact-phone">
               <span>Phone Number *</span>
               <input
+                id="contact-phone"
                 className="input"
                 type="tel"
                 name="phone"
-                placeholder="Ex: 9032677853"
+                placeholder="Ex: 9032677851"
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
               />
             </label>
 
-            <label className="span-2">
+            <label htmlFor="contact-service">
               <span>Service Interested In *</span>
               <select
+                id="contact-service"
                 className="select"
                 name="service"
                 value={formData.service}
@@ -108,9 +111,10 @@ function Contact() {
               </select>
             </label>
 
-            <label className="span-2">
+            <label htmlFor="contact-message" className="span-2">
               <span>Short Requirement Summary</span>
               <textarea
+                id="contact-message"
                 className="textarea"
                 name="message"
                 placeholder="Ex: Interested in Health Insurance waived premium options..."
@@ -191,6 +195,7 @@ function Contact() {
                   href={contactInfo.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  aria-label="Follow NAH44 on Instagram"
                 >
                   <Instagram size={14} /> Instagram
                 </a>
@@ -199,6 +204,7 @@ function Contact() {
                   href={contactInfo.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  aria-label="Follow NAH44 on Facebook"
                 >
                   <Facebook size={14} /> Facebook
                 </a>
@@ -207,6 +213,7 @@ function Contact() {
                   href={contactInfo.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Subscribe to NAH44 on YouTube"
                 >
                   <Youtube size={14} /> YouTube
                 </a>

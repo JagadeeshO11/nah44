@@ -19,6 +19,8 @@ function Header() {
             className="brand-logo-img"
             src="/image.png"
             alt="NAH44 Logo"
+            loading="eager"
+            fetchpriority="high"
           />
         </Link>
 

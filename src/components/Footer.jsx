@@ -14,7 +14,8 @@ function Footer() {
               <img 
                 className="footer-logo-img" 
                 src="/image.png" 
-                alt="NAH44 Logo" 
+                alt="NAH44 Logo"
+                loading="lazy"
               />
               <span>NAH44</span>
             </div>
@@ -64,6 +65,7 @@ function Footer() {
                 href={contactInfo.instagram} 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Follow NAH44 on Instagram"
               >
                 <Instagram size={14} /> Instagram
               </a>
@@ -72,6 +74,7 @@ function Footer() {
                 href={contactInfo.facebook} 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Follow NAH44 on Facebook"
               >
                 <Facebook size={14} /> Facebook
               </a>
@@ -80,6 +83,7 @@ function Footer() {
                 href={contactInfo.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Subscribe to NAH44 on YouTube"
               >
                 <Youtube size={14} /> YouTube
               </a>
