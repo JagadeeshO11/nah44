@@ -444,12 +444,12 @@
 }
 
 .request-modal {
-  width: min(560px, calc(100vw - 2rem));
-  max-width: 560px;
+  width: min(520px, calc(100vw - 2rem));
+  max-width: 520px;
   align-items: stretch;
   text-align: left;
-  padding: 1.25rem;
-  gap: var(--space-3);
+  padding: 1rem;
+  gap: var(--space-2);
 }
 
 .request-modal h3,
@@ -462,13 +462,11 @@
 }
 
 .request-modal .form-grid {
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
-.request-form-note {
-  color: var(--text-secondary);
-  text-align: center;
-  font-size: var(--font-xs);
+.request-modal .textarea {
+  min-height: 80px;
 }
 
 .request-modal__actions {

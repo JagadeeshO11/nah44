@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react'
+import { LuMenu, LuX } from 'react-icons/lu'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { navLinks } from '../data/siteContent.js'
@@ -50,7 +50,7 @@ function Header() {
           aria-controls="mobile-navigation"
           onClick={() => setIsMenuOpen((prevState) => !prevState)}
         >
-          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          {isMenuOpen ? <LuX size={22} /> : <LuMenu size={22} />}
         </button>
       </div>
 

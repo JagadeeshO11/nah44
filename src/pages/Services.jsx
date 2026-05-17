@@ -1,4 +1,4 @@
-import { CheckCircle2, QrCode } from 'lucide-react'
+import { LuCircleCheck, LuQrCode } from 'react-icons/lu'
 import { useState } from 'react'
 import { contactInfo, insuranceOffers, serviceCategories } from '../data/siteContent.js'
 
@@ -87,7 +87,7 @@ function Services() {
       <section className="section-frame discount-card" aria-labelledby="exclusive-offers-title">
         <div className="section-header-row" style={{ marginBottom: '30px' }}>
           <span className="eyebrow" style={{ color: 'var(--primary-light)' }}>
-            <QrCode size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} /> 
+            <LuQrCode size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} /> 
             QR Partner Advantage
           </span>
           <h2 className="section-title" id="exclusive-offers-title" style={{ fontSize: '2.2rem' }}>
@@ -154,7 +154,7 @@ function Services() {
                     <div key={subItem} className="service-card service-category-card__item">
                       <div className="service-category-card__item-main">
                         <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
-                          <CheckCircle2 size={18} />
+                          <LuCircleCheck size={18} />
                         </div>
                         <h3 style={{ fontSize: '1rem', fontWeight: '600', margin: 0 }}>
                           {subItem}
@@ -189,23 +189,23 @@ function Services() {
             </p>
 
             <form className="form-grid" onSubmit={handleWhatsappSubmit} noValidate>
-               <label htmlFor="svc-type" className="span-2">
-                 <span>Select Service Type *</span>
-                 <select
-                   id="svc-type"
-                   className="select"
-                   name="serviceType"
-                   value={requestForm.serviceType}
-                   onChange={handleInputChange}
-                   required
-                 >
-                  {selectedCategory.items.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-               </select>
-               </label>
+                <label htmlFor="svc-type" className="span-2">
+                  <span>Select Sub-Category *</span>
+                  <select
+                    id="svc-type"
+                    className="select"
+                    name="serviceType"
+                    value={requestForm.serviceType}
+                    onChange={handleInputChange}
+                    required
+                  >
+                   {selectedCategory.items.map((item) => (
+                     <option key={item} value={item}>
+                       {item}
+                     </option>
+                   ))}
+                </select>
+                </label>
 
                <label htmlFor="svc-name">
                  <span>Full Name *</span>
@@ -214,7 +214,7 @@ function Services() {
                  className="input"
                  type="text"
                  name="name"
-                 placeholder="Ex: Jagadeesh"
+                 placeholder="Your Name"
                  value={requestForm.name}
                  onChange={handleInputChange}
                  required
@@ -228,7 +228,7 @@ function Services() {
                    className="input"
                    type="tel"
                    name="phone"
-                   placeholder="Ex: 9032677851"
+                   placeholder="Phone Number"
                    value={requestForm.phone}
                    onChange={handleInputChange}
                    required
@@ -242,82 +242,43 @@ function Services() {
                    className="input"
                    type="text"
                    name="location"
-                   placeholder="Ex: Hyderabad"
+                   placeholder="City"
                    value={requestForm.location}
                    onChange={handleInputChange}
                  />
                </label>
 
-               <label htmlFor="svc-notes" className="span-2">
-                 <span>Requirement Notes</span>
-                 <textarea
-                   id="svc-notes"
-                   className="textarea"
-                   name="notes"
-                   placeholder="Tell us what support you need..."
-                   value={requestForm.notes}
-                   onChange={handleInputChange}
-                 />
-               </label>
+                <label htmlFor="svc-notes" className="span-2">
+                  <span>Requirement Notes</span>
+                  <textarea
+                    id="svc-notes"
+                    className="textarea"
+                    name="notes"
+                    placeholder="Tell us what support you need..."
+                    value={requestForm.notes}
+                    onChange={handleInputChange}
+                  />
+                </label>
 
-              <label>
-                <span>Phone Number *</span>
-                <input
-                  className="input"
-                  type="tel"
-                  name="phone"
-                  placeholder="Ex: 9032677851"
-                  value={requestForm.phone}
-                  onChange={handleInputChange}
-                  required
-                />
-              </label>
+                <label htmlFor="svc-category" className="span-2" style={{ fontSize: 'var(--font-xs)', fontWeight: '700', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  <span>Category</span>
+                  <span style={{ color: 'var(--text-secondary)', fontWeight: '500', fontSize: 'var(--font-sm)', paddingTop: 'var(--space-1)' }}>
+                    {selectedCategory.title}
+                  </span>
+                 </label>
 
-              <label>
-                <span>Location</span>
-                <input
-                  className="input"
-                  type="text"
-                  name="location"
-                  placeholder="Ex: Hyderabad"
-                  value={requestForm.location}
-                  onChange={handleInputChange}
-                />
-              </label>
+               <p className="span-2" style={{ textAlign: 'center', color: 'var(--text-tertiary)', fontSize: 'var(--font-xs)', margin: 0 }}>
+                 This opens WhatsApp with your message prefilled. You can review it before sending.
+               </p>
 
-              <label>
-                <span>Category</span>
-                <input
-                  className="input"
-                  type="text"
-                  value={selectedCategory.title}
-                  readOnly
-                />
-              </label>
-
-              <label className="span-2">
-                <span>Requirement Notes</span>
-                <textarea
-                  className="textarea"
-                  name="notes"
-                  placeholder="Tell us what support you need..."
-                  value={requestForm.notes}
-                  onChange={handleInputChange}
-                />
-              </label>
-
-              <p className="span-2 request-form-note">
-                This opens WhatsApp with your message prefilled. You can review it before sending.
-              </p>
-
-              <div className="span-2 request-modal__actions">
-                <button className="btn btn-secondary" type="button" onClick={closeRequestModal}>
-                  Cancel
-                </button>
-                <button className="btn btn-primary" type="submit">
-                  Continue to WhatsApp
-                </button>
-              </div>
+               <div className="span-2 request-modal__actions">
+                 <button className="btn btn-secondary" type="button" onClick={closeRequestModal}>
+                   Cancel
+                 </button>
+                 <button className="btn btn-primary" type="submit">
+                   Continue to WhatsApp
+                 </button>
+               </div>
             </form>
           </div>
         </div>

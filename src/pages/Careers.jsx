@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, DollarSign, FileUp, MapPin, Phone, User } from 'lucide-react'
+import { LuBriefcase, LuCalendar, LuDollarSign, LuMapPin, LuPhone, LuUser } from 'react-icons/lu'
 import { useState } from 'react'
 import { contactInfo, openPositions } from '../data/siteContent.js'
 
@@ -11,22 +11,15 @@ function Careers() {
     mailId: '',
     previousExperience: '',
     salaryPerAnnum: '',
+    previousCompanyName: '',
     preferredLocation: '',
     residencyLocation: '',
     expectedSalary: '',
   })
 
-  const [relievingLetter, setRelievingLetter] = useState(null)
-
   const handleInputChange = (event) => {
     const { name, value } = event.target
     setFormData((prevData) => ({ ...prevData, [name]: value }))
-  }
-
-  const handleFileChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setRelievingLetter(event.target.files[0])
-    }
   }
 
   const handleSubmit = (event) => {
@@ -48,11 +41,11 @@ function Careers() {
         `Contact Number: ${formData.contactNumber}`,
         `Mail ID: ${formData.mailId}`,
         `Previous Company Experience: ${formData.previousExperience || 'Not provided'}`,
+        `Previous Company Name: ${formData.previousCompanyName || 'Not provided'}`,
         `Previous Company Salary Per Annum: ${formData.salaryPerAnnum || 'Not provided'}`,
         `Preferred Work Location: ${formData.preferredLocation || 'Not provided'}`,
         `Residency Location: ${formData.residencyLocation || 'Not provided'}`,
         `Expected Salary: ${formData.expectedSalary || 'Not provided'}`,
-        `Relieving Letter File: ${relievingLetter ? relievingLetter.name : 'Will be attached manually'}`,
         '',
         'Note: Please attach the relieving letter manually before sending this email.'
       ].join('\n')
@@ -95,10 +88,10 @@ function Careers() {
               <p>{position.description}</p>
               <div className="job-details-row">
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                  <MapPin size={12} /> {position.location}
+                  <LuMapPin size={12} /> {position.location}
                 </span>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                  <Briefcase size={12} /> {position.experience}
+                  <LuBriefcase size={12} /> {position.experience}
                 </span>
               </div>
             </article>
@@ -121,14 +114,14 @@ function Careers() {
           <label htmlFor="career-fullname">
             <span>1. Full Name *</span>
             <div style={{ position: 'relative' }}>
-              <User size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
+              <LuUser size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
               <input
                 id="career-fullname"
                 className="input"
                 style={{ paddingLeft: '40px' }}
                 type="text"
                 name="fullName"
-                placeholder="Ex: Jagadeesh Osuru"
+                placeholder="Full Name"
                 value={formData.fullName}
                 onChange={handleInputChange}
                 required
@@ -140,7 +133,7 @@ function Careers() {
           <label htmlFor="career-dob">
             <span>2. Date of Birth *</span>
             <div style={{ position: 'relative' }}>
-              <Calendar size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
+              <LuCalendar size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
               <input
                 id="career-dob"
                 className="input"
@@ -162,7 +155,7 @@ function Careers() {
               className="input"
               type="text"
               name="fatherName"
-              placeholder="Your Father's Full Name"
+              placeholder="Father's Name"
               value={formData.fatherName}
               onChange={handleInputChange}
               required
@@ -173,14 +166,14 @@ function Careers() {
           <label htmlFor="career-contact">
             <span>4. Contact Number *</span>
             <div style={{ position: 'relative' }}>
-              <Phone size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
+              <LuPhone size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
               <input
                 id="career-contact"
                 className="input"
                 style={{ paddingLeft: '40px' }}
                 type="tel"
                 name="contactNumber"
-                placeholder="Ex: 9032677851"
+                placeholder="Phone Number"
                 value={formData.contactNumber}
                 onChange={handleInputChange}
                 required
@@ -196,7 +189,7 @@ function Careers() {
               className="input"
               type="email"
               name="mailId"
-              placeholder="Ex: indassociates.ind@gmail.com"
+              placeholder="Email Address"
               value={formData.mailId}
               onChange={handleInputChange}
               required
@@ -211,49 +204,38 @@ function Careers() {
               className="input"
               type="text"
               name="previousExperience"
-              placeholder="Ex: 2 Years at ABC Corp"
+              placeholder="Previous Experience"
               value={formData.previousExperience}
               onChange={handleInputChange}
             />
           </label>
 
-          {/* 7. Previous Company Relieving Letter Uploader */}
-          <label htmlFor="career-relieving">
-            <span>7. Previous Company Relieving Letter</span>
-            <div className="file-upload-box">
-              <input
-                type="file"
-                id="career-relieving"
-                style={{ display: 'none' }}
-                onChange={handleFileChange}
-                accept=".pdf,.doc,.docx,.png,.jpg"
-              />
-              <div
-                onClick={() => document.getElementById('career-relieving').click()}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-              >
-                <FileUp className="file-upload-box__icon" size={20} />
-                {relievingLetter ? (
-                  <span className="file-upload-box__filename">{relievingLetter.name}</span>
-                ) : (
-                  <span className="file-upload-box__text">Upload Relieving Document (PDF/DOC)</span>
-                )}
-              </div>
-            </div>
+          {/* 7. Previous Company Name */}
+          <label htmlFor="career-company">
+            <span>7. Previous Company Name</span>
+            <input
+              id="career-company"
+              className="input"
+              type="text"
+              name="previousCompanyName"
+              placeholder="Company Name"
+              value={formData.previousCompanyName}
+              onChange={handleInputChange}
+            />
           </label>
 
           {/* 8. Previous Company Salary Per Annum */}
           <label htmlFor="career-salary">
-            <span>8. Previous Company Salary Per Annum (CTC)</span>
+            <span>8. Previous Company Salary Per Annum</span>
             <div style={{ position: 'relative' }}>
-              <DollarSign size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
+              <LuDollarSign size={16} style={{ position: 'absolute', left: '12px', top: '15px', color: 'var(--text-tertiary)' }} />
               <input
                 id="career-salary"
                 className="input"
                 style={{ paddingLeft: '40px' }}
                 type="text"
-                name="salaryPerAnnum"
-                placeholder="Ex: Rs 3,50,000"
+                name="previousCompanySalary"
+                placeholder="Annual CTC"
                 value={formData.salaryPerAnnum}
                 onChange={handleInputChange}
               />
@@ -287,7 +269,7 @@ function Careers() {
               className="input"
               type="text"
               name="residencyLocation"
-              placeholder="Ex: Kukatpally, Hyderabad"
+              placeholder="Residence Area"
               value={formData.residencyLocation}
               onChange={handleInputChange}
               required
@@ -302,7 +284,7 @@ function Careers() {
               className="input"
               type="text"
               name="expectedSalary"
-              placeholder="Ex: Rs 4,00,000 per annum"
+              placeholder="Expected Annual Salary"
               value={formData.expectedSalary}
               onChange={handleInputChange}
               required

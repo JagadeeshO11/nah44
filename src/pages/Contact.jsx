@@ -1,4 +1,4 @@
-import { Check, Facebook, Instagram, Mail, MapPin, Phone, Youtube } from 'lucide-react'
+import { LuCheck, LuFacebook, LuInstagram, LuMail, LuMapPin, LuPhone, LuYoutube } from 'react-icons/lu'
 import { useState } from 'react'
 import { contactInfo } from '../data/siteContent.js'
 
@@ -72,7 +72,7 @@ function Contact() {
                 className="input"
                 type="text"
                 name="name"
-                placeholder="Ex: Jagadeesh"
+                placeholder="Your Name"
                 value={formData.name}
                 onChange={handleInputChange}
                 required
@@ -86,7 +86,7 @@ function Contact() {
                 className="input"
                 type="tel"
                 name="phone"
-                placeholder="Ex: 9032677851"
+                placeholder="Phone Number"
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
@@ -117,7 +117,7 @@ function Contact() {
                 id="contact-message"
                 className="textarea"
                 name="message"
-                placeholder="Ex: Interested in Health Insurance waived premium options..."
+                placeholder="Describe your requirement..."
                 value={formData.message}
                 onChange={handleInputChange}
               />
@@ -142,7 +142,7 @@ function Contact() {
               {/* Phone */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
-                  <Phone size={18} />
+                  <LuPhone size={18} />
                 </div>
                 <div>
                   <span style={{ fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: '600', display: 'block' }}>
@@ -157,7 +157,7 @@ function Contact() {
               {/* Email */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
-                  <Mail size={18} />
+                  <LuMail size={18} />
                 </div>
                 <div>
                   <span style={{ fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: '600', display: 'block' }}>
@@ -172,7 +172,7 @@ function Contact() {
             {/* Address */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
               <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
-                <MapPin size={18} />
+                <LuMapPin size={18} />
               </div>
               <div>
                 <span style={{ fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: '600', display: 'block' }}>
@@ -197,7 +197,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   aria-label="Follow NAH44 on Instagram"
                 >
-                  <Instagram size={14} /> Instagram
+                  <LuInstagram size={14} /> Instagram
                 </a>
                 <a 
                   className="social-pill social-pill--fb" 
@@ -206,7 +206,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   aria-label="Follow NAH44 on Facebook"
                 >
-                  <Facebook size={14} /> Facebook
+                  <LuFacebook size={14} /> Facebook
                 </a>
                 <a
                   className="social-pill social-pill--yt"
@@ -215,7 +215,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   aria-label="Subscribe to NAH44 on YouTube"
                 >
-                  <Youtube size={14} /> YouTube
+                  <LuYoutube size={14} /> YouTube
                 </a>
               </div>
             </div>
@@ -228,7 +228,7 @@ function Contact() {
         <div className="success-modal" onClick={() => setShowSuccess(false)}>
           <div className="success-modal__content" onClick={(e) => e.stopPropagation()}>
             <div className="success-modal__icon">
-              <Check size={32} />
+              <LuCheck size={32} />
             </div>
             <h3>Inquiry Transmitted!</h3>
             <p>

@@ -1,4 +1,4 @@
-import { ArrowRight, Facebook, Instagram, Sparkles, UserCheck, Youtube } from 'lucide-react'
+import { LuArrowRight, LuFacebook, LuInstagram, LuSparkles, LuUserCheck, LuYoutube } from 'react-icons/lu'
 import { Link } from 'react-router-dom'
 import { contactInfo, taglines } from '../data/siteContent.js'
 
@@ -9,7 +9,7 @@ function Home() {
         <div className="tagline-marquee__track">
           {[...taglines, ...taglines].map((tagline, index) => (
             <span className="tagline-marquee__item" key={`${tagline}-${index}`}>
-              <Sparkles size={16} />
+              <LuSparkles size={16} />
               {tagline}
             </span>
           ))}
@@ -33,7 +33,7 @@ function Home() {
 
           <div className="hero-cta-row">
             <Link className="btn btn-primary" to="/services">
-              Explore Services <ArrowRight size={16} />
+              Explore Services <LuArrowRight size={16} />
             </Link>
             <Link className="btn btn-secondary" to="/contact">
               Contact Us
@@ -71,7 +71,7 @@ function Home() {
         <div className="premium-grid">
           <article className="service-card">
             <div className="icon-wrap">
-              <Sparkles size={22} />
+              <LuSparkles size={22} />
             </div>
             <h3>Insurance Portfolios</h3>
             <p>
@@ -81,7 +81,7 @@ function Home() {
 
           <article className="service-card">
             <div className="icon-wrap">
-              <UserCheck size={22} />
+              <LuUserCheck size={22} />
             </div>
             <h3>Flexible Credit Lines</h3>
             <p>
@@ -91,7 +91,7 @@ function Home() {
 
           <article className="service-card">
             <div className="icon-wrap">
-              <Sparkles size={22} />
+              <LuSparkles size={22} />
             </div>
             <h3>Corporate Compliance</h3>
             <p>
@@ -136,7 +136,7 @@ function Home() {
             style={{ textAlign: 'center', alignItems: 'center' }}
           >
             <div className="icon-wrap" style={{ background: 'rgba(255, 140, 0, 0.1)', color: '#FF8C00' }}>
-              <Instagram size={24} />
+              <LuInstagram size={24} />
             </div>
             <h3>Instagram Feed</h3>
             <p>Check out our latest tips, financial updates, and career announcements.</p>
@@ -150,7 +150,7 @@ function Home() {
             style={{ textAlign: 'center', alignItems: 'center' }}
           >
             <div className="icon-wrap" style={{ background: 'rgba(0, 69, 139, 0.1)', color: '#005EBD' }}>
-              <Facebook size={24} />
+              <LuFacebook size={24} />
             </div>
             <h3>Facebook Page</h3>
             <p>Connect with our business community and client success records.</p>
@@ -164,7 +164,7 @@ function Home() {
             style={{ textAlign: 'center', alignItems: 'center' }}
           >
             <div className="icon-wrap" style={{ background: 'rgba(239, 68, 68, 0.12)', color: '#EF4444' }}>
-              <Youtube size={24} />
+              <LuYoutube size={24} />
             </div>
             <h3>YouTube Channel</h3>
             <p>Watch updates, service explainers, and brand content from NAH44.</p>

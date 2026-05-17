@@ -1,4 +1,4 @@
-import { ShieldCheck } from 'lucide-react'
+import { LuShieldCheck } from 'react-icons/lu'
 import { companyValues } from '../data/siteContent.js'
 
 function About() {
@@ -40,7 +40,7 @@ function About() {
               style={{ width: '100%', maxWidth: '340px', padding: '24px', alignItems: 'center', textAlign: 'center', justifyContent: 'center' }}
             >
               <div className="icon-wrap" style={{ width: '60px', height: '60px', borderRadius: '15px', marginBottom: '10px' }}>
-                <ShieldCheck size={30} />
+                <LuShieldCheck size={30} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: '700' }}>100% Verified Partners</h3>
               <p style={{ fontSize: '0.95rem' }}>
@@ -68,7 +68,7 @@ function About() {
             return (
               <article className="service-card" key={value.title}>
                 <div className="icon-wrap">
-                  <Icon size={22} />
+                  <LuShieldCheck size={22} />
                 </div>
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>

@@ -1,15 +1,15 @@
 import {
-  BriefcaseBusiness,
-  Building,
-  FileSpreadsheet,
-  FileText,
-  HeartPulse,
-  Landmark,
-  ShieldAlert,
-  Sparkles,
-  TrendingUp,
-  UserRoundCheck
-} from 'lucide-react'
+  LuBriefcaseBusiness,
+  LuBuilding,
+  LuFileSpreadsheet,
+  LuFileText,
+  LuHeartPulse,
+  LuLandmark,
+  LuShieldAlert,
+  LuSparkles,
+  LuTrendingUp,
+  LuUserRoundCheck
+} from 'react-icons/lu'
 
 export const contactInfo = {
   phone: '9032677853',
@@ -70,7 +70,7 @@ export const serviceCategories = [
     title: 'Insurance Services',
     eyebrow: 'Full Protection Mix',
     description: 'Delivering comprehensive health, life, term, vehicle, and property insurance plans tailored to build a secure future for families and business fleets.',
-    icon: HeartPulse,
+    icon: LuHeartPulse,
     items: [
       'Health Insurance Coverage',
       'Life Insurance Protection',
@@ -83,7 +83,7 @@ export const serviceCategories = [
     title: 'Home Loan Services',
     eyebrow: 'Rebuilding Futures',
     description: 'Providing structural finance support with flexible tenures, competitive percentage rates, and transparent documentation guidelines.',
-    icon: Landmark,
+    icon: LuLandmark,
     items: [
       'Home Purchase Loan',
       'House Mortgage Loan',
@@ -99,7 +99,7 @@ export const serviceCategories = [
     title: 'Business & Corporate Loan',
     eyebrow: 'Accelerating Scale',
     description: 'Professional financial assistance tailored to fast-track business expansion, manage working capital loops, and accelerate growth.',
-    icon: BriefcaseBusiness,
+    icon: LuBriefcaseBusiness,
     items: [
       'Working Capital Assistance',
       'Corporate Expansion Funding',
@@ -111,7 +111,7 @@ export const serviceCategories = [
     title: 'Personal Loan Support',
     eyebrow: 'Fast & Reliable',
     description: 'Immediate liquidity assistance for medical emergencies, wedding budgets, study programs, or life events with simplified compliance.',
-    icon: UserRoundCheck,
+    icon: LuUserRoundCheck,
     items: [
       'Emergency Liquid Funds',
       'Personal Life Event Credit',
@@ -122,7 +122,7 @@ export const serviceCategories = [
     title: 'Corporate Compliance Support',
     eyebrow: 'Guided Registrations',
     description: 'Ensuring your business operations are fully legal, registered, and authorized, giving startup founders peace of mind.',
-    icon: Building,
+    icon: LuBuilding,
     items: [
       'Labour Licence Processing',
       'Labour Documentation Support',
@@ -137,16 +137,16 @@ export const companyValues = [
   {
     title: 'Transparent Guidance',
     description: 'Zero hidden fees, clear documentation checklists, and direct advisory support throughout the loan or insurance lifecycle.',
-    icon: FileText
+    icon: LuFileText
   },
   {
     title: 'Speed & Consistency',
     description: 'Optimized submission pipelines that accelerate validation steps for licensing and corporate MSME approvals.',
-    icon: TrendingUp
+    icon: LuTrendingUp
   },
   {
     title: 'Secure Compliance',
     description: 'Implementing highest trust standards to safeguard private documents and coordinate securely with banking partners.',
-    icon: Sparkles
+    icon: LuSparkles
   }
 ]

@@ -1,4 +1,4 @@
-import { MessageSquareCode } from 'lucide-react'
+import { LuMessageSquareCode } from 'react-icons/lu'
 import { contactInfo } from '../data/siteContent.js'
 
 function FloatingContact() {
@@ -14,7 +14,7 @@ function FloatingContact() {
         title="Chat on WhatsApp"
         aria-label="Contact Support via WhatsApp"
       >
-        <MessageSquareCode size={26} />
+        <LuMessageSquareCode size={26} />
       </a>
     </div>
   )

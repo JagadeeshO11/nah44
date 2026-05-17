@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, Phone, Youtube } from 'lucide-react'
+import { LuFacebook, LuInstagram, LuMail, LuPhone, LuYoutube } from 'react-icons/lu'
 import { Link } from 'react-router-dom'
 import { contactInfo, navLinks } from '../data/siteContent.js'
 
@@ -47,7 +47,7 @@ function Footer() {
                   PHONE SUPPORT
                 </span>
                 <a href={`tel:${contactInfo.phone}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '15px', fontWeight: '600', color: '#FFFFFF' }}>
-                  <Phone size={14} /> IND ASSOCIATES: {contactInfo.phone}
+                  <LuPhone size={14} /> IND ASSOCIATES: {contactInfo.phone}
                 </a>
               </div>
               <div>
@@ -55,7 +55,7 @@ function Footer() {
                   EMAIL SUPPORT
                 </span>
                 <a href={`mailto:${contactInfo.email}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '15px', fontWeight: '600', color: '#FFFFFF' }}>
-                  <Mail size={14} /> Mail id: {contactInfo.email}
+                  <LuMail size={14} /> Mail id: {contactInfo.email}
                 </a>
               </div>
             </div>
@@ -67,7 +67,7 @@ function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Follow NAH44 on Instagram"
               >
-                <Instagram size={14} /> Instagram
+                <LuInstagram size={14} /> Instagram
               </a>
               <a 
                 className="social-pill social-pill--fb" 
@@ -76,7 +76,7 @@ function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Follow NAH44 on Facebook"
               >
-                <Facebook size={14} /> Facebook
+                <LuFacebook size={14} /> Facebook
               </a>
               <a
                 className="social-pill social-pill--yt"
@@ -85,7 +85,7 @@ function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Subscribe to NAH44 on YouTube"
               >
-                <Youtube size={14} /> YouTube
+                <LuYoutube size={14} /> YouTube
               </a>
             </div>
           </div>
