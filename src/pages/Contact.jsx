@@ -55,14 +55,14 @@ function Contact() {
         </p>
       </section>
 
-      {/* Split Columns: Form & Info */}
-      <div className="home-hero-grid">
-        {/* Direct Inquiry Form */}
-        <section className="section-frame" style={{ margin: 0, width: '100%' }} aria-labelledby="inquiry-title">
-          <span className="eyebrow">Submit Inquiry</span>
-          <h2 className="section-title" id="inquiry-title" style={{ fontSize: '1.8rem', marginBottom: '25px' }}>
-            Service Request Form
-          </h2>
+{/* Split Columns: Form & Info */}
+       <div className="home-hero-grid contact-grid">
+         {/* Direct Inquiry Form */}
+         <section className="section-frame contact-section" style={{ margin: 0, width: '100%' }} aria-labelledby="inquiry-title">
+           <span className="eyebrow">Submit Inquiry</span>
+           <h2 className="section-title" id="inquiry-title" style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', marginBottom: 'clamp(15px, 3vw, 25px)' }}>
+             Service Request Form
+           </h2>
 
         <form className="form-grid" onSubmit={handleSubmit} noValidate>
             <label htmlFor="contact-name">
@@ -131,12 +131,12 @@ function Contact() {
           </form>
         </section>
 
-        {/* Contact Coordinates & Details */}
-        <section className="section-frame" style={{ margin: 0, width: '100%' }} aria-labelledby="details-title">
-          <span className="eyebrow">Desk Coordinates</span>
-          <h2 className="section-title" id="details-title" style={{ fontSize: '1.8rem', marginBottom: '25px' }}>
-            Contact Details
-          </h2>
+{/* Contact Coordinates & Details */}
+         <section className="section-frame contact-details" style={{ margin: 0, width: '100%' }} aria-labelledby="details-title">
+           <span className="eyebrow">Desk Coordinates</span>
+           <h2 className="section-title" id="details-title" style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', marginBottom: 'clamp(15px, 3vw, 25px)' }}>
+             Contact Details
+           </h2>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
               {/* Phone */}

@@ -7,6 +7,7 @@ import About from './pages/About.jsx'
 import Careers from './pages/Careers.jsx'
 import Contact from './pages/Contact.jsx'
 import Home from './pages/Home.jsx'
+import NotFound from './pages/NotFound.jsx'
 import Services from './pages/Services.jsx'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

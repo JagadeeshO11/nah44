@@ -83,20 +83,20 @@ function Services() {
         </div>
       </section>
 
-      {/* Exclusive Offers for NAH44 QR Customers */}
-      <section className="section-frame discount-card" aria-labelledby="exclusive-offers-title">
-        <div className="section-header-row" style={{ marginBottom: '30px' }}>
-          <span className="eyebrow" style={{ color: 'var(--primary-light)' }}>
-            <LuQrCode size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} /> 
-            QR Partner Advantage
-          </span>
-          <h2 className="section-title" id="exclusive-offers-title" style={{ fontSize: '2.2rem' }}>
-            Exclusive Offers for NAH44 Vehicle QR Code Customers
-          </h2>
-          <p className="section-intro" style={{ color: 'var(--text-primary)' }}>
-            As a verified NAH44 Vehicle QR Code user, enjoy premier premium waivers and direct premium waiver codes on our primary policy classes:
-          </p>
-        </div>
+{/* Exclusive Offers for NAH44 QR Customers */}
+       <section className="section-frame discount-card" aria-labelledby="exclusive-offers-title">
+         <div className="section-header-row" style={{ marginBottom: 'clamp(20px, 4vw, 30px)' }}>
+           <span className="eyebrow" style={{ color: 'var(--primary-light)' }}>
+             <LuQrCode size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} /> 
+             QR Partner Advantage
+           </span>
+           <h2 className="section-title" id="exclusive-offers-title" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)' }}>
+             Exclusive Offers for NAH44 Vehicle QR Code Customers
+           </h2>
+           <p className="section-intro" style={{ color: 'var(--text-primary)' }}>
+             As a verified NAH44 Vehicle QR Code user, enjoy premier premium waivers and direct premium waiver codes on our primary policy classes:
+           </p>
+         </div>
 
         <div className="discount-grid">
           {insuranceOffers.map((offer) => (

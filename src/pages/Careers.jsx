@@ -99,17 +99,17 @@ function Careers() {
         </div>
       </section>
 
-      {/* 11-Field Application Form */}
-      <section className="section-frame" aria-labelledby="apply-form-title">
-        <div className="section-header-row">
-          <span className="eyebrow">Application Form</span>
-          <h2 className="section-title" id="apply-form-title">Submit Your Profile</h2>
-          <p className="section-intro">
-            Fill in the 11-field job application profile below. The Apply button will open a pre-filled email draft to our team, and you can attach the relieving letter there before sending.
-          </p>
-        </div>
+{/* 11-Field Application Form */}
+       <section className="section-frame" aria-labelledby="apply-form-title">
+         <div className="section-header-row">
+           <span className="eyebrow">Application Form</span>
+           <h2 className="section-title" id="apply-form-title">Submit Your Profile</h2>
+           <p className="section-intro">
+             Fill in the 11-field job application profile below. The Apply button will open a pre-filled email draft to our team, and you can attach the relieving letter there before sending.
+           </p>
+         </div>
 
-        <form className="form-grid" onSubmit={handleSubmit} noValidate>
+         <form className="form-grid career-form-grid" onSubmit={handleSubmit} noValidate>
           {/* 1. Full Name */}
           <label htmlFor="career-fullname">
             <span>1. Full Name *</span>
