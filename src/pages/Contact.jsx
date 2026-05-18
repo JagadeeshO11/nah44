@@ -1,8 +1,11 @@
-import { LuCheck, LuFacebook, LuInstagram, LuMail, LuMapPin, LuPhone, LuYoutube } from 'react-icons/lu'
+import { LuCheck, LuMail, LuMapPin, LuPhone } from 'react-icons/lu'
+import { SiFacebook, SiInstagram, SiYoutube } from 'react-icons/si'
 import { useState } from 'react'
 import { contactInfo } from '../data/siteContent.js'
 
 function Contact() {
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactInfo.address)}`
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -56,11 +59,11 @@ function Contact() {
       </section>
 
 {/* Split Columns: Form & Info */}
-       <div className="home-hero-grid contact-grid">
+      <div className="home-hero-grid contact-grid">
          {/* Direct Inquiry Form */}
          <section className="section-frame contact-section" style={{ margin: 0, width: '100%' }} aria-labelledby="inquiry-title">
            <span className="eyebrow">Submit Inquiry</span>
-           <h2 className="section-title" id="inquiry-title" style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', marginBottom: 'clamp(15px, 3vw, 25px)' }}>
+           <h2 className="section-title section-heading-compact" id="inquiry-title">
              Service Request Form
            </h2>
 
@@ -123,7 +126,7 @@ function Contact() {
               />
             </label>
 
-            <div className="span-2" style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+            <div className="span-2 center-action-row">
               <button className="btn btn-primary" type="submit" disabled={isSending}>
                 {isSending ? 'Sending Request...' : 'Send Inquiry'}
               </button>
@@ -131,95 +134,103 @@ function Contact() {
           </form>
         </section>
 
-{/* Contact Coordinates & Details */}
+        {/* Contact Coordinates & Details */}
          <section className="section-frame contact-details" style={{ margin: 0, width: '100%' }} aria-labelledby="details-title">
            <span className="eyebrow">Desk Coordinates</span>
-           <h2 className="section-title" id="details-title" style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', marginBottom: 'clamp(15px, 3vw, 25px)' }}>
+           <h2 className="section-title section-heading-compact" id="details-title">
              Contact Details
            </h2>
+           <p className="contact-details__intro">
+             Choose a quick way to reach our team.
+           </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+            <div className="contact-detail-grid">
               {/* Phone */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
+              <a className="inline-card contact-detail-card" href={`tel:${contactInfo.phone}`}>
+                <div className="icon-wrap contact-detail-card__icon">
                   <LuPhone size={18} />
                 </div>
-                <div>
-                  <span style={{ fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: '600', display: 'block' }}>
+                <div className="inline-card__copy contact-detail-card__copy">
+                  <span className="inline-card__eyebrow">
                     CALL SUPPORT
                   </span>
-                  <a href={`tel:${contactInfo.phone}`} style={{ fontSize: '16px', fontWeight: '700', color: '#FFFFFF' }}>
-                    IND ASSOCIATES: {contactInfo.phone}
-                  </a>
+                  <span className="inline-card__link">
+                    {contactInfo.phone}
+                  </span>
                 </div>
-              </div>
+              </a>
 
               {/* Email */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
+              <a className="inline-card contact-detail-card" href={`mailto:${contactInfo.email}`}>
+                <div className="icon-wrap contact-detail-card__icon">
                   <LuMail size={18} />
                 </div>
-                <div>
-                  <span style={{ fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: '600', display: 'block' }}>
+                <div className="inline-card__copy contact-detail-card__copy">
+                  <span className="inline-card__eyebrow">
                     EMAIL SUPPORT
                   </span>
-                  <a href={`mailto:${contactInfo.email}`} style={{ fontSize: '15px', fontWeight: '700', color: '#FFFFFF' }}>
-                    Mail id: {contactInfo.email}
-                  </a>
+                  <span className="inline-card__link">
+                    {contactInfo.email}
+                  </span>
                 </div>
-              </div>
+              </a>
 
-            {/* Address */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-              <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
-                <LuMapPin size={18} />
-              </div>
-              <div>
-                <span style={{ fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: '600', display: 'block' }}>
-                  CORPORATE HEADQUARTERS
-                </span>
-                <span style={{ fontSize: '15px', fontWeight: '600', color: '#FFFFFF' }}>
-                  {contactInfo.address}
-                </span>
-              </div>
+              {/* Address */}
+              <a
+                className="inline-card contact-detail-card contact-detail-card--full"
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="icon-wrap contact-detail-card__icon">
+                  <LuMapPin size={18} />
+                </div>
+                <div className="inline-card__copy contact-detail-card__copy">
+                  <span className="inline-card__eyebrow">
+                    CORPORATE HEADQUARTERS
+                  </span>
+                  <span className="inline-card__text">
+                    {contactInfo.address}
+                  </span>
+                </div>
+              </a>
             </div>
 
             {/* Social Pills */}
-            <div style={{ borderTop: '1px solid var(--glass-border)', paddingTop: '20px' }}>
-              <span style={{ fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: '700', display: 'block', marginBottom: '12px' }}>
+            <div className="contact-social-block">
+              <span className="inline-card__eyebrow contact-social-block__label">
                 SOCIAL NETWORK CHANNELS
               </span>
-              <div className="social-pill-row">
+              <div className="social-pill-row contact-social-row">
                 <a 
-                  className="social-pill" 
+                  className="social-pill contact-social-icon social-pill--insta" 
                   href={contactInfo.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="Follow NAH44 on Instagram"
                 >
-                  <LuInstagram size={14} /> Instagram
+                  <SiInstagram size={18} />
                 </a>
                 <a 
-                  className="social-pill social-pill--fb" 
+                  className="social-pill contact-social-icon social-pill--fb" 
                   href={contactInfo.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="Follow NAH44 on Facebook"
                 >
-                  <LuFacebook size={14} /> Facebook
+                  <SiFacebook size={18} />
                 </a>
                 <a
-                  className="social-pill social-pill--yt"
+                  className="social-pill contact-social-icon social-pill--yt"
                   href={contactInfo.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Subscribe to NAH44 on YouTube"
                 >
-                  <LuYoutube size={14} /> YouTube
+                  <SiYoutube size={18} />
                 </a>
               </div>
             </div>
-          </div>
         </section>
       </div>
 

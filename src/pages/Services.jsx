@@ -1,5 +1,6 @@
-import { LuCircleCheck, LuQrCode } from 'react-icons/lu'
-import { useState } from 'react'
+import { LuCircleCheck, LuQrCode, LuX } from 'react-icons/lu'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { contactInfo, insuranceOffers, serviceCategories } from '../data/siteContent.js'
 
 function Services() {
@@ -22,6 +23,44 @@ function Services() {
       notes: '',
     })
   }
+
+  useEffect(() => {
+    if (!selectedCategory) {
+      return undefined
+    }
+
+    const scrollY = window.scrollY
+    const originalBodyStyle = {
+      overflow: document.body.style.overflow,
+      position: document.body.style.position,
+      top: document.body.style.top,
+      width: document.body.style.width,
+    }
+
+    document.body.classList.add('modal-open')
+    document.body.style.overflow = 'hidden'
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.width = '100%'
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeRequestModal()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      document.body.classList.remove('modal-open')
+      document.body.style.overflow = originalBodyStyle.overflow
+      document.body.style.position = originalBodyStyle.position
+      document.body.style.top = originalBodyStyle.top
+      document.body.style.width = originalBodyStyle.width
+      window.scrollTo(0, scrollY)
+    }
+  }, [selectedCategory])
 
   const closeRequestModal = () => {
     setSelectedCategory(null)
@@ -83,14 +122,14 @@ function Services() {
         </div>
       </section>
 
-{/* Exclusive Offers for NAH44 QR Customers */}
-       <section className="section-frame discount-card" aria-labelledby="exclusive-offers-title">
-         <div className="section-header-row" style={{ marginBottom: 'clamp(20px, 4vw, 30px)' }}>
+      {/* Exclusive Offers for NAH44 QR Customers */}
+      <section className="section-frame discount-card" aria-labelledby="exclusive-offers-title">
+         <div className="section-header-row section-header-row--compact">
            <span className="eyebrow" style={{ color: 'var(--primary-light)' }}>
              <LuQrCode size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} /> 
              QR Partner Advantage
            </span>
-           <h2 className="section-title" id="exclusive-offers-title" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)' }}>
+           <h2 className="section-title section-heading-compact" id="exclusive-offers-title">
              Exclusive Offers for NAH44 Vehicle QR Code Customers
            </h2>
            <p className="section-intro" style={{ color: 'var(--text-primary)' }}>
@@ -105,7 +144,7 @@ function Services() {
               <span className="discount-item__label" style={{ color: '#FFFFFF', fontWeight: '700', display: 'block', margin: '4px 0' }}>
                 {offer.label.split(' Offer')[0]}
               </span>
-              <p style={{ fontSize: '11px', color: 'var(--text-secondary)', lineHeight: '1.4' }}>
+              <p className="metric-note">
                 {offer.description}
               </p>
             </div>
@@ -114,7 +153,7 @@ function Services() {
       </section>
 
       {/* Main Service Categories Cards Grid */}
-      <section className="section-frame" aria-labelledby="service-categories-title">
+      <section className="section-frame service-categories-section" aria-labelledby="service-categories-title">
         <div className="section-header-row">
           <span className="eyebrow">Service Directory</span>
           <h2 className="section-title" id="service-categories-title">
@@ -130,67 +169,84 @@ function Services() {
             const Icon = category.icon
 
             return (
-              <article
-                key={category.title}
-                className="section-frame service-category-card"
-                aria-labelledby={category.title.replace(/\s+/g, '-').toLowerCase()}
-                style={{ marginTop: 0 }}
-              >
-                <div className="service-category-card__header">
-                  <div className="icon-wrap">
-                    <Icon size={24} />
-                  </div>
-                  <div>
-                    <span className="eyebrow">{category.eyebrow}</span>
-                    <h2 className="section-title" id={category.title.replace(/\s+/g, '-').toLowerCase()}>
-                      {category.title}
-                    </h2>
-                    <p className="section-intro">{category.description}</p>
-                  </div>
-                </div>
+<article
+                 key={category.title}
+                 className="service-category-card"
+                 aria-labelledby={category.title.replace(/\s+/g, '-').toLowerCase()}
+               >
+               <div className="service-category-card__header">
+                   <div className="icon-wrap">
+                     <Icon size={24} />
+                   </div>
+                   <div className="service-category-card__header-copy">
+                     <span className="eyebrow">{category.eyebrow}</span>
+                     <span className="service-category-card__count">
+                       {category.items.length} services
+                     </span>
+                     <h2 className="section-title" id={category.title.replace(/\s+/g, '-').toLowerCase()}>
+                       {category.title}
+                     </h2>
+                     <p className="section-intro">{category.description}</p>
+                   </div>
+                 </div>
 
-                <div className="service-category-card__items">
-                  {category.items.map((subItem) => (
-                    <div key={subItem} className="service-card service-category-card__item">
-                      <div className="service-category-card__item-main">
-                        <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
-                          <LuCircleCheck size={18} />
-                        </div>
-                        <h3 style={{ fontSize: '1rem', fontWeight: '600', margin: 0 }}>
-                          {subItem}
-                        </h3>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                 <div className="service-category-card__items">
+                   {category.items.map((subItem) => (
+                     <div key={subItem} className="service-card service-category-card__item">
+                       <div className="service-category-card__item-main">
+                         <div className="icon-wrap" style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0 }}>
+                           <LuCircleCheck size={18} />
+                         </div>
+                         <h3 style={{ fontSize: '1rem', fontWeight: '600', margin: 0 }}>
+                           {subItem}
+                         </h3>
+                       </div>
+                     </div>
+                   ))}
+                 </div>
 
-                <div className="service-category-card__footer">
-                  <button
-                    className="btn btn-primary service-request-btn"
-                    type="button"
-                    onClick={() => openRequestModal(category)}
-                  >
-                    Request This Category
-                  </button>
-                </div>
-              </article>
+                 <div className="service-category-card__footer">
+                   <button
+                     className="btn btn-primary service-request-btn"
+                     type="button"
+                     onClick={() => openRequestModal(category)}
+                   >
+                     Request This Category
+                   </button>
+                 </div>
+               </article>
             )
           })}
         </div>
       </section>
 
-      {selectedCategory && (
+      {selectedCategory && createPortal(
         <div className="success-modal" onClick={closeRequestModal}>
           <div className="success-modal__content request-modal" onClick={(event) => event.stopPropagation()}>
-            <h3>Request Service</h3>
-            <p>
-              Fill in your details and we will open WhatsApp with a ready-to-send message for
-              <strong> {selectedCategory.title}</strong>.
-            </p>
+            <div className="request-modal__header">
+              <div>
+                <span className="request-modal__eyebrow">Quick Request</span>
+                <h3>Request Service</h3>
+                <p>Share a few details and continue on WhatsApp.</p>
+              </div>
+              <button
+                type="button"
+                className="request-modal__close"
+                onClick={closeRequestModal}
+                aria-label="Close request service form"
+              >
+                <LuX size={18} />
+              </button>
+            </div>
+
+            <div className="request-modal__summary">
+              <span className="request-modal__summary-label">{selectedCategory.title}</span>
+              <span className="request-modal__summary-meta">{selectedCategory.items.length} options</span>
+            </div>
 
             <form className="form-grid" onSubmit={handleWhatsappSubmit} noValidate>
                 <label htmlFor="svc-type" className="span-2">
-                  <span>Select Sub-Category *</span>
+                  <span>Service *</span>
                   <select
                     id="svc-type"
                     className="select"
@@ -244,45 +300,34 @@ function Services() {
                    name="location"
                    placeholder="City"
                    value={requestForm.location}
-                   onChange={handleInputChange}
+                  onChange={handleInputChange}
                  />
                </label>
 
                 <label htmlFor="svc-notes" className="span-2">
-                  <span>Requirement Notes</span>
+                  <span>Requirement</span>
                   <textarea
                     id="svc-notes"
                     className="textarea"
                     name="notes"
-                    placeholder="Tell us what support you need..."
+                    placeholder="Short note about what you need"
                     value={requestForm.notes}
                     onChange={handleInputChange}
                   />
                 </label>
-
-                <label htmlFor="svc-category" className="span-2" style={{ fontSize: 'var(--font-xs)', fontWeight: '700', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  <span>Category</span>
-                  <span style={{ color: 'var(--text-secondary)', fontWeight: '500', fontSize: 'var(--font-sm)', paddingTop: 'var(--space-1)' }}>
-                    {selectedCategory.title}
-                  </span>
-                 </label>
-
-               <p className="span-2" style={{ textAlign: 'center', color: 'var(--text-tertiary)', fontSize: 'var(--font-xs)', margin: 0 }}>
-                 This opens WhatsApp with your message prefilled. You can review it before sending.
-               </p>
 
                <div className="span-2 request-modal__actions">
                  <button className="btn btn-secondary" type="button" onClick={closeRequestModal}>
                    Cancel
                  </button>
                  <button className="btn btn-primary" type="submit">
-                   Continue to WhatsApp
+                   Open WhatsApp
                  </button>
                </div>
             </form>
           </div>
         </div>
-      )}
+      , document.body)}
     </div>
   )
 }

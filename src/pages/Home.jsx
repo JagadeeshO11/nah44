@@ -101,24 +101,24 @@ function Home() {
         </div>
       </section>
 
-{/* Careers Banner CTA */}
-       <section className="section-frame" style={{ border: '1px solid rgba(0, 69, 139, 0.2)' }} aria-labelledby="careers-cta">
-         <div className="discount-grid careers-cta-grid" style={{ alignItems: 'center' }}>
+      {/* Careers Banner CTA */}
+      <section className="section-frame" style={{ border: '1px solid rgba(0, 69, 139, 0.2)' }} aria-labelledby="careers-cta">
+        <div className="discount-grid careers-cta-grid cta-panel">
            <div>
-             <h2 className="section-title" id="careers-cta" style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', marginBottom: '10px' }}>
+             <h2 className="section-title section-heading-compact" id="careers-cta">
                Join NAH44 and build your future with us.
              </h2>
              <p className="section-intro">
                We are actively hiring motivated Sales Promoters, Sales Executives, and Sales Officers to expand our advisory network.
              </p>
            </div>
-           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+           <div className="cta-panel__action">
              <Link className="btn btn-primary" to="/careers" style={{ background: 'linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary-dark) 100%)', boxShadow: 'none' }}>
                Apply Now
              </Link>
            </div>
-         </div>
-       </section>
+        </div>
+      </section>
 
       {/* Social Media Link Cards */}
       <section className="section-frame" aria-labelledby="socials-title">

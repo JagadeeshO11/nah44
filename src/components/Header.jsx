@@ -29,7 +29,7 @@ function Header() {
             <NavLink
               key={link.to}
               className={({ isActive }) =>
-                isActive ? "site-nav__link active" : "site-nav__link"
+                isActive ? 'site-nav__link active' : 'site-nav__link'
               }
               to={link.to}
               end={link.end}
@@ -37,15 +37,16 @@ function Header() {
               {link.label}
             </NavLink>
           ))}
-          {/* <Link className="site-nav__action" to="/careers">
-            Apply Now
-          </Link> */}
         </nav>
 
         <button
           className="site-menu-toggle"
           type="button"
-          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-label={
+            isMenuOpen
+              ? 'Close navigation menu'
+              : 'Open navigation menu'
+          }
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsMenuOpen((prevState) => !prevState)}
@@ -54,16 +55,30 @@ function Header() {
         </button>
       </div>
 
+      {/* Overlay */}
+      {isMenuOpen && (
+        <div
+          className="site-mobile-overlay"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
       <div
-        className={`site-mobile-nav ${isMenuOpen ? 'site-mobile-nav--open' : ''}`}
+        className={`site-mobile-nav ${isMenuOpen ? 'site-mobile-nav--open' : ''
+          }`}
         id="mobile-navigation"
       >
-        <nav className="site-mobile-nav__panel" aria-label="Mobile Primary">
+        <nav
+          className="site-mobile-nav__panel"
+          aria-label="Mobile Primary"
+        >
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               className={({ isActive }) =>
-                isActive ? 'site-mobile-nav__link active' : 'site-mobile-nav__link'
+                isActive
+                  ? 'site-mobile-nav__link active'
+                  : 'site-mobile-nav__link'
               }
               to={link.to}
               end={link.end}
@@ -71,9 +86,6 @@ function Header() {
               {link.label}
             </NavLink>
           ))}
-          <Link className="site-mobile-nav__action" to="/careers">
-            Apply Now
-          </Link>
         </nav>
       </div>
     </header>

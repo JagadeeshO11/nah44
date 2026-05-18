@@ -99,7 +99,7 @@ function Careers() {
         </div>
       </section>
 
-{/* 11-Field Application Form */}
+      {/* 11-Field Application Form */}
        <section className="section-frame" aria-labelledby="apply-form-title">
          <div className="section-header-row">
            <span className="eyebrow">Application Form</span>
@@ -292,13 +292,13 @@ function Careers() {
           </label>
 
           {/* Submit Button */}
-          <div className="span-2" style={{ display: 'flex', justifyContent: 'center', marginTop: '15px' }}>
+          <div className="span-2 center-action-row" style={{ marginTop: '15px' }}>
             <button className="btn btn-primary" type="submit">
               Apply By Email
             </button>
           </div>
 
-          <p className="span-2" style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
+          <p className="span-2 form-note">
             The relieving letter cannot be attached automatically from the browser. Your mail app will open with the form details filled in, and you can attach the file manually before sending.
           </p>
         </form>

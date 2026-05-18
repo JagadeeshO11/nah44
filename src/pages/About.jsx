@@ -35,14 +35,11 @@ function About() {
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div 
-              className="service-card discount-card" 
-              style={{ width: '100%', maxWidth: '340px', padding: '24px', alignItems: 'center', textAlign: 'center', justifyContent: 'center' }}
-            >
-              <div className="icon-wrap" style={{ width: '60px', height: '60px', borderRadius: '15px', marginBottom: '10px' }}>
+            <div className="service-card discount-card panel-card">
+              <div className="icon-wrap panel-card__icon">
                 <LuShieldCheck size={30} />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '700' }}>100% Verified Partners</h3>
+              <h3 className="panel-card__title">100% Verified Partners</h3>
               <p style={{ fontSize: '0.95rem' }}>
                 Directly associated with verified government licensing channels and licensed banking credit desks.
               </p>

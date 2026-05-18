@@ -80,19 +80,16 @@ export const serviceCategories = [
     ]
   },
   {
-    title: 'Home Loan Services',
-    eyebrow: 'Rebuilding Futures',
-    description: 'Providing structural finance support with flexible tenures, competitive percentage rates, and transparent documentation guidelines.',
-    icon: LuLandmark,
+    title: 'Corporate Compliance Support',
+    eyebrow: 'Guided Registrations',
+    description: 'Ensuring your business operations are fully legal, registered, and authorized, giving startup founders peace of mind.',
+    icon: LuBuilding,
     items: [
-      'Home Purchase Loan',
-      'House Mortgage Loan',
-      'Construction Support Loan',
-      'Open Plot Mortgage Loan',
-      'Plot + Construction Loan',
-      'Plot Purchase Loan',
-      'House Renovation Support',
-      'Balance Transfer & Top-up Loan'
+      'Labour Licence Processing',
+      'Labour Documentation Support',
+      'Labour Renewal Compliance',
+      'UDYAM (MSME) Corporate Registration',
+      'MSME Scheme Advisory Support'
     ]
   },
   {
@@ -119,18 +116,22 @@ export const serviceCategories = [
     ]
   },
   {
-    title: 'Corporate Compliance Support',
-    eyebrow: 'Guided Registrations',
-    description: 'Ensuring your business operations are fully legal, registered, and authorized, giving startup founders peace of mind.',
-    icon: LuBuilding,
+    title: 'Home Loan Services',
+    eyebrow: 'Rebuilding Futures',
+    description: 'Providing structural finance support with flexible tenures, competitive percentage rates, and transparent documentation guidelines.',
+    icon: LuLandmark,
     items: [
-      'Labour Licence Processing',
-      'Labour Documentation Support',
-      'Labour Renewal Compliance',
-      'UDYAM (MSME) Corporate Registration',
-      'MSME Scheme Advisory Support'
+      'Home Purchase Loan',
+      'House Mortgage Loan',
+      'Construction Support Loan',
+      'Open Plot Mortgage Loan',
+      'Plot + Construction Loan',
+      'Plot Purchase Loan',
+      'House Renovation Support',
+      'Balance Transfer & Top-up Loan'
     ]
   }
+
 ]
 
 export const companyValues = [
