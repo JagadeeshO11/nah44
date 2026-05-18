@@ -25,9 +25,9 @@ function Home() {
             Smart Solutions for <br />
             <span className="page-title__gradient">Insurance & Credit</span>
           </h1>
-          
+
           <p className="page-intro" style={{ marginLeft: 0, textAlign: 'left' }}>
-            NAH44 provides trusted assistance across health, life, and automotive insurance, 
+            NAH44 provides trusted assistance across health, life, and automotive insurance,
             mortgage and business loans, labour licensing compliance, and UDYAM registrations.
           </p>
 
@@ -44,13 +44,13 @@ function Home() {
         {/* Visual Logo Center Panel */}
         <div className="hero-visual-panel">
           <div className="visual-logo-container">
-            <img 
-              className="visual-logo" 
-              src="/image.png" 
-              alt="NAH44 Visual Emblem" 
+            <img
+              className="visual-logo"
+              src="/image.png"
+              alt="NAH44 Visual Emblem"
             />
             <div className="visual-text-row">
-              <span className="visual-company">NAH44</span>
+              {/* <span className="visual-company">NAH44</span> */}
               <p className="visual-tagline">Secure Today, Build Tomorrow</p>
             </div>
           </div>
@@ -104,19 +104,19 @@ function Home() {
       {/* Careers Banner CTA */}
       <section className="section-frame" style={{ border: '1px solid rgba(0, 69, 139, 0.2)' }} aria-labelledby="careers-cta">
         <div className="discount-grid careers-cta-grid cta-panel">
-           <div>
-             <h2 className="section-title section-heading-compact" id="careers-cta">
-               Join NAH44 and build your future with us.
-             </h2>
-             <p className="section-intro">
-               We are actively hiring motivated Sales Promoters, Sales Executives, and Sales Officers to expand our advisory network.
-             </p>
-           </div>
-           <div className="cta-panel__action">
-             <Link className="btn btn-primary" to="/careers" style={{ background: 'linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary-dark) 100%)', boxShadow: 'none' }}>
-               Apply Now
-             </Link>
-           </div>
+          <div>
+            <h2 className="section-title section-heading-compact" id="careers-cta">
+              Join NAH44 and build your future with us.
+            </h2>
+            <p className="section-intro">
+              We are actively hiring motivated Sales Promoters, Sales Executives, and Sales Officers to expand our advisory network.
+            </p>
+          </div>
+          <div className="cta-panel__action">
+            <Link className="btn btn-primary" to="/careers" style={{ background: 'linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary-dark) 100%)', boxShadow: 'none' }}>
+              Apply Now
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -128,10 +128,10 @@ function Home() {
         </div>
 
         <div className="premium-grid">
-          <a 
-            className="service-card" 
-            href={contactInfo.instagram} 
-            target="_blank" 
+          <a
+            className="service-card"
+            href={contactInfo.instagram}
+            target="_blank"
             rel="noopener noreferrer"
             style={{ textAlign: 'center', alignItems: 'center' }}
           >
@@ -142,10 +142,10 @@ function Home() {
             <p>Check out our latest tips, financial updates, and career announcements.</p>
           </a>
 
-          <a 
-            className="service-card" 
-            href={contactInfo.facebook} 
-            target="_blank" 
+          <a
+            className="service-card"
+            href={contactInfo.facebook}
+            target="_blank"
             rel="noopener noreferrer"
             style={{ textAlign: 'center', alignItems: 'center' }}
           >

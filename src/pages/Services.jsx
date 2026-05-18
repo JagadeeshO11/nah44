@@ -10,6 +10,8 @@ function Services() {
     name: '',
     phone: '',
     location: '',
+    salaried: '',
+    monthlyIncome: '',
     notes: '',
   })
 
@@ -20,6 +22,8 @@ function Services() {
       name: '',
       phone: '',
       location: '',
+      salaried: '',
+      monthlyIncome: '',
       notes: '',
     })
   }
@@ -69,13 +73,19 @@ function Services() {
       name: '',
       phone: '',
       location: '',
+      salaried: '',
+      monthlyIncome: '',
       notes: '',
     })
   }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
-    setRequestForm((prevState) => ({ ...prevState, [name]: value }))
+    setRequestForm((prevState) => ({
+      ...prevState,
+      [name]: value,
+      ...(name === 'salaried' && value !== 'yes' ? { monthlyIncome: '' } : {}),
+    }))
   }
 
   const handleWhatsappSubmit = (event) => {
@@ -83,6 +93,16 @@ function Services() {
 
     if (!selectedCategory || !requestForm.name || !requestForm.phone || !requestForm.serviceType) {
       alert('Please fill out at least your name and phone number.')
+      return
+    }
+
+    if (!requestForm.salaried) {
+      alert('Please confirm whether the customer is salaried.')
+      return
+    }
+
+    if (requestForm.salaried === 'yes' && !requestForm.monthlyIncome.trim()) {
+      alert('Please enter the monthly income for salaried customers.')
       return
     }
 
@@ -96,6 +116,8 @@ function Services() {
       `Name: ${requestForm.name}`,
       `Phone: ${requestForm.phone}`,
       `Location: ${requestForm.location || 'Not provided'}`,
+      `Salaried: ${requestForm.salaried === 'yes' ? 'Yes' : 'No'}`,
+      `Monthly Income: ${requestForm.salaried === 'yes' ? requestForm.monthlyIncome : 'Not applicable'}`,
       `Notes: ${requestForm.notes || 'Not provided'}`
     ].join('\n')
 
@@ -303,6 +325,38 @@ function Services() {
                   onChange={handleInputChange}
                  />
                </label>
+
+               <label htmlFor="svc-salaried">
+                 <span>Salaried? *</span>
+                 <select
+                   id="svc-salaried"
+                   className="select"
+                   name="salaried"
+                   value={requestForm.salaried}
+                   onChange={handleInputChange}
+                   required
+                 >
+                   <option value="">Select an option</option>
+                   <option value="yes">Yes</option>
+                   <option value="no">No</option>
+                 </select>
+               </label>
+
+               {requestForm.salaried === 'yes' && (
+                 <label htmlFor="svc-income">
+                   <span>Monthly Income *</span>
+                   <input
+                     id="svc-income"
+                     className="input"
+                     type="text"
+                     name="monthlyIncome"
+                     placeholder="Monthly income"
+                     value={requestForm.monthlyIncome}
+                     onChange={handleInputChange}
+                     required
+                   />
+                 </label>
+               )}
 
                 <label htmlFor="svc-notes" className="span-2">
                   <span>Requirement</span>

@@ -15,6 +15,7 @@ function FloatingContact() {
         aria-label="Contact Support via WhatsApp"
       >
         <LuMessageSquareCode size={26} />
+        <span className="floating-contact__label">Chat on WhatsApp</span>
       </a>
     </div>
   )

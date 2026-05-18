@@ -11,6 +11,34 @@ function Header() {
     setIsMenuOpen(false)
   }, [location.pathname])
 
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined
+    }
+
+    const originalBodyStyle = {
+      overflow: document.body.style.overflow,
+      touchAction: document.body.style.touchAction,
+    }
+
+    document.body.style.overflow = 'hidden'
+    document.body.style.touchAction = 'none'
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = originalBodyStyle.overflow
+      document.body.style.touchAction = originalBodyStyle.touchAction
+    }
+  }, [isMenuOpen])
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
@@ -20,7 +48,7 @@ function Header() {
             src="/image.png"
             alt="NAH44 Logo"
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         </Link>
 
